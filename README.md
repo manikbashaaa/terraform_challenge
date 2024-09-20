@@ -1,5 +1,6 @@
 # terraform_challenge
 This is a simple code to create a RDS Mysql and EC2 instance 
+
 these are the requirments :
 Create an EC2 instance with the following specifications:
 Instance Type: t2.micro
