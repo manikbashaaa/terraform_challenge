@@ -8,20 +8,20 @@
 }
 
 provider "aws" {
-  region  = "ap-south-1"
-  profile = "charan"
+  region  = var.region
+  
 }
 resource "aws_db_instance" "myrds" {
-    allocated_storage   = var.dbstorage
-   storage_type        = "gp3"
-   identifier          = "mydb"
-   engine              = "mysql"
-   engine_version      = "8.0.35"
-   instance_class      = "db.t4g.micro"
-   username            = "admin"
-   password            = "Passw0rd!123"
-   publicly_accessible = true
-   skip_final_snapshot = true
+   allocated_storage   = var.dbstorage
+   storage_type        = var.storage_type
+   identifier          = var.identifier
+   engine              = var.engine
+   engine_version      = var.engine_version
+   instance_class      = var.instance_class
+   username            = var.username
+   password            = var.password
+   publicly_accessible = var.publicly_accessible
+   skip_final_snapshot = var.skip_final_snapshot
 
    tags = {
      Name = "MyRDS"
