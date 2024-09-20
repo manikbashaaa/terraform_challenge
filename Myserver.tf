@@ -7,8 +7,8 @@ terraform {
   }
 }
 resource "aws_instance" "my_server" {
-  ami           = "ami-0522ab6e1ddcc7055"  # Ubuntu Server 20.04 LTS AMI ID
-  instance_type = "t2.micro"
+  ami           = var.ami
+  instance_type = var.instance_type
 
   tags = {
     Name = "Mywebserver"
@@ -16,7 +16,7 @@ resource "aws_instance" "my_server" {
 }
 
 resource "aws_vpc" "mainvpc" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.vpc_cidr
 }
 
 resource "aws_default_security_group" "sg" {
